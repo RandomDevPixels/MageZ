@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo06sr74fa6nu"]
+[gd_scene load_steps=4 format=3 uid="uid://bo06sr74fa6nu"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_kplrb"]
 [ext_resource type="PackedScene" uid="uid://rwcsk386c2nh" path="res://scenes/player.tscn" id="1_vl5in"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdkl5"]
+size = Vector2(127, 533.25)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_kplrb")
 
 [node name="player" parent="." instance=ExtResource("1_vl5in")]
-position = Vector2(48, 96)
+position = Vector2(1513, -643)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(122, 22)
@@ -17,6 +20,19 @@ position = Vector2(128, -56)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-64, 48)
-polygon = PackedVector2Array(-120, 64, -72, 64, -72, 240, -16, 240, 80, 240, 136, 240, 136, 208, 136, 176, 192, 176, 192, 176, 440, 72, 440, 136, 440, 208, 608, 208, 608, 24, 688, 24, 688, 160, 920, 160, 920, 8, 2160, 8, 2160, 392, 0, 384, -128, 384, -208, 384, -208, 64)
+polygon = PackedVector2Array(-120, 64, -72, 64, -72, 240, -16, 240, 80, 240, 136, 240, 136, 208, 136, 176, 192, 176, 192, 176, 440, 72, 440, 136, 440, 208, 608, 208, 608, 24, 688, 24, 688, 160, 920, 160, 920, 8, 1983, 8, 1983, -596, 2161, -596, 2161, 8, 2439, 9, 2439, -590, 2676, -590, 2680, 387, 0, 384, -128, 384, -208, 384, -208, 64)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1878, -336)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(4, -1)
+shape = SubResource("RectangleShape2D_fdkl5")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2/CollisionShape2D"]
+offset_left = -64.0
+offset_top = -266.0
+offset_right = 63.0
+offset_bottom = 266.0
